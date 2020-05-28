@@ -1,0 +1,104 @@
+ 
+##############
+# Controlers #
+##############
+
+[Laptop]
+
+#########
+# Tanks #
+#########
+
+[Tank T1A]
+controler:  Laptop
+fishList:   ["Sophie"]
+moduleList: ["BUTTON_013",  "FEEDER_015"]
+schedule:   schedule recording2
+
+[Tank T1B]
+controler:  Laptop
+fishList:   ["Lucy"]
+moduleList: ["BUTTON_005",  "FEEDER_008"]
+schedule:   schedule recording2
+
+
+#############
+# schedules #
+#############
+
+
+[schedule recording]
+game recording.1: ["now"]
+game recording.2: ["interval", "10:00:00", "10:00:05", "00:00:01"]
+game recording.3: ["interval", "12:30:00", "12:30:05", "00:00:01"]
+game recording.4: ["interval", "14:00:00", "14:00:05", "00:00:01"]
+
+[schedule recording2]
+game recording2.1: ["interval", "10:00:00", "10:00:05", "00:00:01"]
+game recording2.2: ["interval", "12:30:00", "12:30:05", "00:00:01"]
+game recording2.3: ["interval", "14:00:00", "14:00:05", "00:00:01"]
+
+[schedule_progression]
+
+[exclude_from_schedule_progression]
+fish_list: ["Lucy", "Sophie"]
+
+
+##########
+# games #
+##########
+
+[game recording]
+task recording: 1
+
+[game recording2]
+task recording2: 1
+
+#########
+# Tasks #
+#########
+
+[task recording]
+color:                   [0,100,0]
+button_index:            0
+reward_index:            0
+command_signal_duration: 300
+reward_signal_duration:  500
+button_threshold:        100
+button_active_duration:  00:00:30
+reward_method:           feed
+reward_amount:           1
+break_duration:          00:00:10
+max_time:                00:10:00
+delay_after_last_successful_trial:   00:00:10
+delay_after_last_unsuccessful_trial:  00:00:10
+
+[task recording2]
+color:                   [0,100,0]
+button_index:            0
+reward_index:            0
+command_signal_duration: 300
+reward_signal_duration:  500
+button_threshold:        100
+button_active_duration:  00:00:30
+reward_method:           feed
+reward_amount:           1
+break_duration:          00:00:10
+max_time:                00:10:00
+delay_after_last_successful_trial:   00:00:10
+delay_after_last_unsuccessful_trial:  00:00:10
+
+[default task settings]
+button_index:            0
+color:                   [0,100,0]
+command_signal_duration: 200
+reward_signal_duration:  500
+reward_index:            0
+reward_method:           feed
+max_n:                   1
+override_max_time:       0
+delay_after_last_successful_trial:   00:00:00
+delay_after_last_unsuccessful_trial:  00:00:00
+
+
+
